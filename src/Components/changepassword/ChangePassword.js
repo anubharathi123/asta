@@ -32,8 +32,7 @@ const ChangePassword = () => {
     // Call API to change the password
     try {
       await authService.changePassword({
-        old_password: oldPassword,
-        new_password: newPassword,
+        newPassword
       });
       setSuccessMessage('Password changed successfully!');
       setOldPassword('');

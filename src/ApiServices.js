@@ -72,7 +72,7 @@ const authService = {
     return handleResponse(apiClient.get('auth/otp/', { params: { email } }));
   },
   verifyOTP: async (data) => {
-    if (!data.email || !data.otp) {
+    if (!data.otp) {
       throw new Error('Email and OTP are required for verification.');
     }
     return handleResponse(apiClient.post('auth/otp/', data));
@@ -84,7 +84,7 @@ const authService = {
     return handleResponse(apiClient.put('auth/otp/', { email }));
   },
   resetPassword: async (data) => {
-    if (!data.email || !data.otp || !data.new_password) {
+    if (!data.email) {
       throw new Error('Email, OTP, and new password are required for password reset.');
     }
     return handleResponse(apiClient.post('auth/reset/', data));
